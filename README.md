@@ -34,9 +34,8 @@ It is designed for apps that need:
 
 ```kotlin
 repositories {
-    maven {
-        url = uri("https://maven.pkg.github.com/kkokotero/VectorLite")
-    }
+    maven("https://jitpack.io")
+    maven("https://maven.pkg.github.com/kkokotero/VectorLite")
 }
 ```
 
