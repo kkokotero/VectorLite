@@ -385,6 +385,44 @@ For a public library, keep the demo app focused on real usage and keep the libra
 
 ---
 
+## Comparisons
+
+### VectorLite vs Room
+
+| Feature | Room | VectorLite |
+| --- | --- | --- |
+| Relational data | ✓ | ✓ |
+| Type-safe Kotlin API | ✓ | ✓ |
+| Built-in CRUD service layer | Partial | ✓ |
+| Vector search | No | ✓ |
+| Reactive table changes | Limited | ✓ |
+| SQLite extensions | Limited | ✓ |
+| On-device AI workloads | No | ✓ |
+
+### VectorLite vs sqlite-vector
+
+| Feature | sqlite-vector | VectorLite |
+| --- | --- | --- |
+| Vector search | ✓ | ✓ |
+| ORM | No | ✓ |
+| Relations | No | ✓ |
+| Services | No | ✓ |
+| Query DSL | No | ✓ |
+| Android-friendly API | Low-level | High-level |
+
+### VectorLite vs ObjectBox
+
+| Feature | ObjectBox | VectorLite |
+| --- | --- | --- |
+| Local database | ✓ | ✓ |
+| Vector search | ✓ | ✓ |
+| SQLite based | No | ✓ |
+| SQL access | Limited | ✓ |
+| Custom SQLite extensions | No | ✓ |
+| Service layer | Manual | Built-in |
+
+---
+
 ## Requirements
 
 - Android-only
