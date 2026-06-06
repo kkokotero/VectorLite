@@ -1,6 +1,21 @@
+import java.util.Properties
+
+group = rootProject.group
+version = rootProject.version
+
 plugins {
     alias(libs.plugins.android.library)
     id("maven-publish")
+}
+
+fun Project.readLocalProperty(key: String): String? {
+    val localPropertiesFile = rootProject.file("local.properties")
+    if (!localPropertiesFile.exists()) return null
+
+    val properties = Properties().apply {
+        localPropertiesFile.inputStream().use { load(it) }
+    }
+    return properties.getProperty(key)?.takeIf { it.isNotBlank() }
 }
 
 android {
@@ -45,6 +60,66 @@ android {
 kotlin {
     compilerOptions {
         jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
+    }
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            register<MavenPublication>("release") {
+                from(components["release"])
+
+                groupId = rootProject.group.toString()
+                artifactId = "vectorlite"
+                version = rootProject.version.toString()
+
+                pom {
+                    name.set("VectorLite")
+                    description.set("Android library for local relational data, CRUD services, and vector search.")
+                    url.set("https://github.com/kkokotero/VectorLite")
+                    licenses {
+                        license {
+                            name.set("MIT License")
+                            url.set("https://opensource.org/licenses/MIT")
+                        }
+                    }
+                    developers {
+                        developer {
+                            id.set("kkokotero")
+                            name.set("kkokotero")
+                        }
+                    }
+                    scm {
+                        url.set("https://github.com/kkokotero/VectorLite")
+                        connection.set("scm:git:https://github.com/kkokotero/VectorLite.git")
+                        developerConnection.set("scm:git:ssh://git@github.com/kkokotero/VectorLite.git")
+                    }
+                }
+            }
+        }
+
+        repositories {
+            maven {
+                name = "GitHubPackages"
+                val repoOwner = project.findProperty("githubOwner")?.toString()
+                    ?: project.readLocalProperty("githubOwner")
+                    ?: "kkokotero"
+                val repoName = project.findProperty("githubRepo")?.toString()
+                    ?: project.readLocalProperty("githubRepo")
+                    ?: "VectorLite"
+                url = uri("https://maven.pkg.github.com/$repoOwner/$repoName")
+                credentials {
+                    username = project.findProperty("gpr.user")?.toString()
+                        ?: project.readLocalProperty("gpr.user")
+                        ?: System.getenv("GITHUB_ACTOR")
+                        ?: ""
+                    password = project.findProperty("gpr.key")?.toString()
+                        ?: project.readLocalProperty("gpr.key")
+                        ?: System.getenv("GITHUB_TOKEN")
+                        ?: ""
+                }
+            }
+        }
     }
 }
 

@@ -8,6 +8,7 @@
   <a href="https://github.com/kkokotero/VectorLite">
     <img src="https://img.shields.io/badge/GitHub-kkokotero%2FVectorLite-181717?style=for-the-badge&logo=github" alt="GitHub badge" />
   </a>
+  <img src="https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge" alt="Version badge" />
   <img src="https://img.shields.io/badge/License-MIT-2ea44f?style=for-the-badge" alt="MIT license badge" />
   <img src="https://img.shields.io/badge/Android-API%2027%2B-3ddc84?style=for-the-badge&logo=android" alt="Android badge" />
   <img src="https://img.shields.io/badge/Kotlin-JVM%2017-7f52ff?style=for-the-badge&logo=kotlin" alt="Kotlin badge" />
@@ -26,6 +27,26 @@ It is designed for apps that need:
 - transactions
 - backup and restore
 - SQLite extensions
+
+---
+
+## Installation
+
+```kotlin
+repositories {
+    maven {
+        url = uri("https://maven.pkg.github.com/kkokotero/VectorLite")
+    }
+}
+```
+
+### Add the dependency
+
+```kotlin
+dependencies {
+    implementation("io.github.kkokotero:vectorlite:1.0.0")
+}
+```
 
 ---
 
