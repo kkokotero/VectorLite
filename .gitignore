@@ -1,0 +1,29 @@
+# Gradle
+.gradle/
+**/build/
+build/
+
+# Android / local configuration
+local.properties
+**/local.properties
+.idea/
+*.iml
+.kotlin/
+.externalNativeBuild/
+.cxx/
+captures/
+
+# IDE and OS files
+.DS_Store
+Thumbs.db
+
+# Packaging artifacts
+*.apk
+*.aab
+*.ap_
+*.keystore
+*.jks
+
+# Logs
+*.log
+hs_err_pid*
