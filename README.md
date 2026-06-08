@@ -12,6 +12,10 @@
   <img src="https://img.shields.io/badge/License-MIT-2ea44f?style=for-the-badge" alt="MIT license badge" />
   <img src="https://img.shields.io/badge/Android-API%2027%2B-3ddc84?style=for-the-badge&logo=android" alt="Android badge" />
   <img src="https://img.shields.io/badge/Kotlin-JVM%2017-7f52ff?style=for-the-badge&logo=kotlin" alt="Kotlin badge" />
+<a href="https://jitpack.io/#kkokotero/VectorLite">
+  <img src="https://img.shields.io/jitpack/v/github/kkokotero/VectorLite?style=for-the-badge&color=25a162" alt="JitPack Version" />
+</a>
+
 </p>
 
 **VectorLite is an Android library for local relational data, CRUD services, reactive table changes, and vector search — all on-device.**
