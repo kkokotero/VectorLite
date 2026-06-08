@@ -35,7 +35,6 @@ It is designed for apps that need:
 ```kotlin
 repositories {
     maven("https://jitpack.io")
-    maven("https://maven.pkg.github.com/kkokotero/VectorLite")
 }
 ```
 
@@ -43,7 +42,7 @@ repositories {
 
 ```kotlin
 dependencies {
-    implementation("io.github.kkokotero:vectorlite:1.0.0")
+    implementation("com.github.kkokotero:VectorLite:1.0.0")
 }
 ```
 
